@@ -1,0 +1,495 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor"
+      crossorigin="anonymous"
+    />
+
+    <!-- style -->
+    <link rel="stylesheet" href="./css/index.css" />
+
+    <title>Artoku</title>
+  </head>
+  <body class="d-flex overflow-hidden">
+    <!-- sidebar navbar -->
+    <nav class="sidebar d-flex flex-column position-relative">
+      <img src="assets/artoku-logo.svg" alt="artoku logo" class="logo" />
+
+      <div class="top-section">
+        <ul class="menu ps-0">
+          <li class="d-flex flex-row active">
+            <span class="icon icon-category my-auto"></span>
+            <p class="my-auto">Dashboard</p>
+          </li>
+          <li class="d-flex flex-row">
+            <span class="icon icon-transaction my-auto"></span>
+            <p class="my-auto">Transaction</p>
+          </li>
+          <li class="d-flex flex-row">
+            <span class="icon icon-invoice my-auto"></span>
+            <p class="my-auto">Invoice</p>
+          </li>
+          <li class="d-flex flex-row">
+            <span class="icon icon-statistic my-auto"></span>
+            <p class="my-auto">Statistic</p>
+          </li>
+          <li class="d-flex flex-row">
+            <span class="icon icon-profile my-auto"></span>
+            <p class="my-auto">Profile</p>
+          </li>
+          <li class="d-flex flex-row">
+            <span class="icon icon-setting my-auto"></span>
+            <p class="my-auto">Setting</p>
+          </li>
+        </ul>
+
+        <div class="card-upgrade d-flex justify-content-between flex-column">
+          <p class="title">
+            Let's upgrade to<br />
+            pro account
+          </p>
+          <button class="btn-primary">Upgrade</button>
+        </div>
+      </div>
+
+      <div class="bottom-section d-flex flex-row justify-content-between">
+        <div class="d-flex flex-row">
+          <div class="profile-holder"></div>
+
+          <div class="d-flex flex-column profile-text">
+            <p class="name">Alvin Elian</p>
+            <p class="account">@alvinelian</p>
+          </div>
+        </div>
+
+        <div class="my-auto" style="cursor: pointer">
+          <span class="icon icon-arrow-down"></span>
+        </div>
+      </div>
+    </nav>
+
+    <!-- main content -->
+
+    <main class="d-flex flex-row">
+      <!-- content -->
+      <div class="content">
+        <!-- top section -->
+        <div class="top d-flex justify-content-between mb-4">
+          <div class="d-flex flex-column">
+            <p class="title mb-0">Overview</p>
+            <p class="subtitle">
+              Manage your personal finance in just one page
+            </p>
+          </div>
+
+          <div class="d-flex card-content">
+            <span class="icon icon-calendar my-auto"></span>
+            <input type="date" name="dateInput" />
+            <span class="icon icon-arrow-down-grey my-auto"></span>
+          </div>
+        </div>
+
+        <!-- card section -->
+        <div class="card-section d-flex justify-content-between mb-4 row">
+          <div class="col-4">
+            <div
+              class="card-content card-small d-flex flex-row justify-content-between"
+            >
+              <div class="d-flex flex-column">
+                <p class="title">Total Incomes</p>
+                <p class="number">$18,135.82</p>
+                <p class="label-green">
+                  18% <span class="icon-sm icon-trade-up ms-1"></span>
+                </p>
+              </div>
+
+              <div>
+                <span class="icon icon-import"></span>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-4">
+            <div
+              class="card-content card-small d-flex flex-row justify-content-between"
+            >
+              <div class="d-flex flex-column">
+                <p class="title">Total Outcome</p>
+                <p class="number">$9,934.25</p>
+                <p class="label-red">
+                  4% <span class="icon-sm icon-trade-down ms-1"></span>
+                </p>
+              </div>
+
+              <div>
+                <span class="icon icon-export"></span>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-4">
+            <div
+              class="card-content card-small d-flex flex-row justify-content-between"
+            >
+              <div class="d-flex flex-column">
+                <p class="title">Total Saving</p>
+                <p class="number">$8,201.25</p>
+                <p class="label-green">
+                  12% <span class="icon-sm icon-trade-up ms-1"></span>
+                </p>
+              </div>
+
+              <div>
+                <span class="icon icon-wallet-money"></span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- chart section -->
+        <div class="card-content mb-4 chart-section">
+          <div class="d-flex justify-content-between mb-2">
+            <p class="title-card">Analytical Report</p>
+
+            <div class="d-flex flex-row">
+              <div class="filter">
+                Daily
+              </div>
+              <div class="filter active mx-2">
+                Monthly
+              </div>
+              <div class="filter">
+                Yearly
+              </div>
+            </div>
+          </div>
+          <div>
+            <canvas id="myChart"></canvas>
+          </div>
+        </div>
+
+        <!-- table section -->
+        <div class="card-content table-section">
+          <div class="d-flex justify-content-between mb-2">
+            <p class="title-card">Manage Invoice</p>
+            <div>
+              <span class="icon icon-more"></span>
+            </div>
+          </div>
+
+          <table>
+            <tr>
+              <th>Date</th>
+              <th>Invoice Number</th>
+              <th>Receipt</th>
+              <th>Status</th>
+              <th>Amount</th>
+            </tr>
+            <tr>
+              <td>3 May 2022</td>
+              <td>1204DRI12-2312-22</td>
+              <td>
+                <span><img src="assets/icons/Dribbble.png" alt="" /></span>
+                Dribble Pro
+              </td>
+              <td>
+                <div class="label-paid">
+                  <span class="icon-sm icon-paid me-1"></span>Paid
+                </div>
+              </td>
+              <td>$87.00</td>
+            </tr>
+            <tr>
+              <td>25 April 2022</td>
+              <td>5056FIG82-1229-22</td>
+              <td>
+                <span><img src="assets/icons/Figma.png" alt="" /></span> Figma
+                Pro
+              </td>
+              <td>
+                <div class="label-paid">
+                  <span class="icon-sm icon-paid me-1"></span>Paid
+                </div>
+              </td>
+              <td>$48.00</td>
+            </tr>
+          </table>
+        </div>
+      </div>
+
+      <!-- right bar -->
+      <div class="right-bar">
+        <div class="credit-card-section">
+          <div class="d-flex justify-content-between mb-4">
+            <p class="title-card">Manage Invoice</p>
+            <div>
+              <span class="icon icon-more"></span>
+            </div>
+          </div>
+
+          <div class="credit-card-wrap position-relative mb-5">
+            <div class="credit-card">
+              <img
+                src="assets/card-ilus.svg"
+                alt="card illustration"
+                class="card-ilus"
+              />
+              <div class="d-flex flex-row justify-content-between mb-4">
+                <img src="assets/artoku-small.svg" alt="artoku small logo" />
+                <img src="assets/mastercard-logo.svg" alt="mastercard logo" />
+              </div>
+
+              <div class="d-flex flex-column balance mb-4">
+                <p class="subtitle">Your Balance</p>
+                <p class="title">$24,623.21</p>
+              </div>
+
+              <div class="d-flex flex-row justify-content-between credential">
+                <p>****1912</p>
+                <p>06/27</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="activity-section">
+          <div class="d-flex justify-content-between mb-4">
+            <p class="title-card">Recent Activity</p>
+            <p class="view">View All</p>
+          </div>
+
+          <div class="activity-wrap d-flex flex-column">
+            <div class="d-flex flex-row justify-content-between mb-4">
+              <div class="d-flex flex-row">
+                <img
+                  src="assets/activity/dribble.png"
+                  alt="dribble logo"
+                  class="logo-activity"
+                />
+                <div class="d-flex flex-column my-auto ms-3">
+                  <p class="title-activity">Dribble Pro</p>
+                  <p class="date-activity">3 May 2022, 04:16 AM</p>
+                </div>
+              </div>
+              <p class="out my-auto">-$87.00</p>
+            </div>
+            <div class="d-flex flex-row justify-content-between mb-4">
+              <div class="d-flex flex-row">
+                <img
+                  src="assets/activity/money-in.png"
+                  alt="dribble logo"
+                  class="logo-activity"
+                />
+                <div class="d-flex flex-column my-auto ms-3">
+                  <p class="title-activity">Received from Dani</p>
+                  <p class="date-activity">1 May 2022, 05:32 PM</p>
+                </div>
+              </div>
+              <p class="in my-auto">+$1,250.00</p>
+            </div>
+            <div class="d-flex flex-row justify-content-between mb-4">
+              <div class="d-flex flex-row">
+                <img
+                  src="assets/activity/figma.png"
+                  alt="dribble logo"
+                  class="logo-activity"
+                />
+                <div class="d-flex flex-column my-auto ms-3">
+                  <p class="title-activity">Figma Pro</p>
+                  <p class="date-activity">25 April 2022, 01:45 PM</p>
+                </div>
+              </div>
+              <p class="out my-auto">-$48.00</p>
+            </div>
+            <div class="d-flex flex-row justify-content-between mb-4">
+              <div class="d-flex flex-row">
+                <img
+                  src="assets/activity/money-out.png"
+                  alt="dribble logo"
+                  class="logo-activity"
+                />
+                <div class="d-flex flex-column my-auto ms-3">
+                  <p class="title-activity">Sent money to Robert</p>
+                  <p class="date-activity">27 April 2022, 05:32 PM</p>
+                </div>
+              </div>
+              <p class="out my-auto">-$50.00</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="goal-section">
+          <div class="d-flex justify-content-between mb-4">
+            <p class="title-card">Your Goals</p>
+            <div>
+              <span class="icon icon-more"></span>
+            </div>
+          </div>
+
+          <div class="card-goal">
+            <div class="d-flex flex-row justify-content-between mb-2">
+              <p class="title">Family Trip</p>
+              <p class="subtitle">1 Years Later</p>
+            </div>
+
+            <progress
+              class="goal-progress mb-2"
+              data-value="70%"
+              id="goalProgress"
+            ></progress>
+
+            <div class="d-flex flex-row justify-content-between">
+              <p class="title"><span class="subtitle">Now </span>$3,150</p>
+              <p class="title"><span class="subtitle">Target </span>$4,500</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2"
+      crossorigin="anonymous"
+    ></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="//glenthemes.github.io/iconsax/geticons.js"></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.8.0/chart.min.js"
+      integrity="sha512-sW/w8s4RWTdFFSduOTGtk4isV1+190E/GghVffMA9XczdJ2MDzSzLEubKAs5h0wzgSJOQTRYyaz73L3d6RtJSg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+
+    <!-- menu change active class -->
+    <script>
+      $(document).ready(function() {
+        $('.menu li').click(function(e) {
+
+          $('.menu li.active').removeClass('active');
+
+          var $parent = $(this);
+          $parent.addClass('active');
+          e.preventDefault();
+        });
+      });
+    </script>
+
+    <!-- config -->
+    <script>
+      const labels = [
+        "JAN",
+        "FEB",
+        "MAR",
+        "APR",
+        "MAY",
+        "JUN",
+        "JUL",
+        "AUG",
+        "SEP",
+        "OCT",
+      ];
+
+      const decimal = 3;
+      const data = {
+        labels: labels,
+        datasets: [
+          {
+            data: [3000, 2000, 1500, 2900, 4500, 2100, 1500, 3000, 2000, 3200],
+            borderRadius: 8,
+            backgroundColor: [
+              "#EDF5F5",
+              "#EDF5F5",
+              "#EDF5F5",
+              "#EDF5F5",
+              "#EDF5F5",
+              "#EDF5F5",
+              "#EDF5F5",
+              "#EDF5F5",
+              "#EDF5F5",
+              "#EDF5F5",
+            ],
+            hoverBackgroundColor: [
+              "#167278",
+              "#167278",
+              "#167278",
+              "#167278",
+              "#167278",
+              "#167278",
+              "#167278",
+              "#167278",
+              "#167278",
+              "#167278",
+            ]
+          },
+        ],
+      };
+    </script>
+
+    <script>
+
+      const myChart = new Chart(document.getElementById("myChart"), {
+        type: "bar",
+        data: data,
+        options: {
+          scales: {
+            x:{
+              grid: {
+                color: "rgba(0, 0, 0, 0)",
+              },
+            },
+            y: {
+              grid: {
+                color: "rgba(0, 0, 0, 0)",
+              },
+              beginAtZero: true,
+              max: 5000,
+              step: 1,
+              ticks: {
+                  // Include a dollar sign in the ticks
+                  callback: function(value, index, values) {
+                      return '$' + value;;
+                  }
+              },
+            },
+          },
+          plugins: {
+            legend: {
+              display: false
+            },
+            tooltip: {
+              yAlign : 'bottom',
+              backgroundColor: "#FFFFFF",
+              titleColor: "#96A0B5",
+              labelColor: "#191D2B",
+              footerColor: "#191D2B",
+              footerFont: {
+                size: 14
+              },
+              afterFooter: '<p>Halo</p>',
+              callbacks: {
+                  title: function(context) {
+                      return 'Total Income'
+                  },
+                  label: function(context) {
+                        return "";
+                  },
+                  footer: function(context){
+                      let data = `$ ${context[0].formattedValue}`
+                      return data;
+                  }
+                  
+              }
+            },
+          }
+        }
+      });
+    </script>
+  </body>
+</html>
